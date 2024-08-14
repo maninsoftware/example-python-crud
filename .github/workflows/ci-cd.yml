@@ -43,7 +43,7 @@ jobs:
       - name: Build docker image
         run: |
           pip install -r requirements.txt
-          docker login 
+          docker login -u sadhik@maninorg.com -p Manin123*
           docker build -t maninorg/python-crud:$GITHUB_SHA .
           docker push maninorg/python-crud:$GITHUB_SHA
   deploy:
