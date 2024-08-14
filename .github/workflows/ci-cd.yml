@@ -52,9 +52,11 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
 
     steps:
-      - name: Deploy to Staging
+      - name: Deploy to Dev
         run: |
           # Example deployment script, replace with actual deployment logic
+          kubectl get pods -n dev
+          ENV=dev BUILD=$GITHUB_SHA envsubset < deployment.yaml | kubectl apply -f - 
           echo "Deploying to staging environment"
 
       - name: Notify Success
