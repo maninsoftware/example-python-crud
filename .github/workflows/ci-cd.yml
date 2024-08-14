@@ -45,7 +45,7 @@ jobs:
       - name: Build Application
         run: |
           # Example of building, customize as needed
-          python setup.py install
+          uvicorn app.main:app --host localhost --port 8000 --reload
 
   deploy:
     runs-on: ubuntu-latest
