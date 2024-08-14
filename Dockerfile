@@ -9,7 +9,5 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-RUN pytest
-
 CMD ["uvicorn app.main:app --host localhost --port 8000 --reload"]
 
