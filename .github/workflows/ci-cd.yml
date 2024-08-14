@@ -44,6 +44,7 @@ jobs:
 
       - name: Build Application
         run: |
+          pip install -r requirements.txt
           # Example of building, customize as needed
           uvicorn app.main:app --host localhost --port 8000 --reload
 
