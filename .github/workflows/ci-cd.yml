@@ -55,7 +55,7 @@ jobs:
       - name: Deploy to Dev
         run: |
           # Example deployment script, replace with actual deployment logic
-          kubectl config use-context minikube
+          kubectl config current-context
           kubectl get ns
           #ENV=dev BUILD=$GITHUB_SHA envsubset < deployment.yaml | kubectl apply -f - -n dev
           echo "Deploying to staging environment"
