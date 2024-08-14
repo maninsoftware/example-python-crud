@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: my-python-app
-        image: <your-docker-username>/my-python-app:<tag>
+        image: maninorg/python-crud:$BUILD
         ports:
         - containerPort: 8000
