@@ -53,6 +53,8 @@ jobs:
 
     steps:
       - name: Deploy to Dev
+        env:
+          KUBECONFIG: $HOME/.github/workflow/.kube/config
         run: |
           # Example deployment script, replace with actual deployment logic
           kubectl config current-context
