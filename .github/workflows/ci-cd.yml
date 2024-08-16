@@ -54,12 +54,12 @@ jobs:
     steps:
       - name: Deploy to Dev
         env:
-          KUBECONFIG: .github/workflow/.kube/config
+          KUBECONFIG: $HOME/.github/workflow/.kube/config
         run: |
           # Example deployment script, replace with actual deployment logic
           pwd
           ls -la 
-          #minikube start --driver=docker
+          minikube start --driver=docker
           kubectl get ns
           kubectl create namespace dev
           ENV=dev BUILD=$GITHUB_SHA envsubst < manifests/deployment.yaml | kubectl apply -f - -n dev
