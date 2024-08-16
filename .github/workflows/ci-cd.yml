@@ -67,7 +67,8 @@ jobs:
           cp .github/workflows/.kube/client.key $HOME/.minikube/profiles/minikube/client.key
           cp .github/workflows/.kube/ca.crt $HOME/.minikube/certs/ca.crt  
           ls -la  $HOME/.minikube/certs
-          ls -la  $HOME/.minikube/profiles/minikube/          
+          ls -la  $HOME/.minikube/profiles/minikube/  
+          minikube update-context --profile=minikube
           kubectl get pods --all-namespaces
           #kubectl create namespace dev
           #ENV=dev BUILD=$GITHUB_SHA envsubst < manifests/deployment.yaml | kubectl apply -f - -n dev
