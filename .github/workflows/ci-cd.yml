@@ -52,10 +52,13 @@ jobs:
     #if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
       - name: Deploy to Dev
         run: |
-          # Example deployment script, replace with actual deployment logic
-          echo "${{ secrets.KUBECONFIG }}" | out-file -encoding ascii $env:USERPROFILE\.kube\config
+          mkdir -p $HOME/.kube
+          cat ".github/workflows/.kube/config" > $HOME/.kube/config
           pwd
           ls -la 
           #minikube start --driver=docker
