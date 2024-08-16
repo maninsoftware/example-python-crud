@@ -61,7 +61,7 @@ jobs:
           minikube start --driver=docker
           kubectl get ns
           kubectl create namespace dev
-          ENV=dev BUILD=$GITHUB_SHA envsubset < deployment.yaml | kubectl apply -f - -n dev
+          ENV=dev BUILD=$GITHUB_SHA envsubst < deployment.yaml | kubectl apply -f - -n dev
           echo "Deploying to staging environment"
 
       - name: Notify Success
