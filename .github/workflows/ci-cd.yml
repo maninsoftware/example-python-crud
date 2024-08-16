@@ -61,6 +61,7 @@ jobs:
           cat ".github/workflows/.kube/config" > $HOME/.kube/config
           mkdir -p $HOME/.minikube/profiles/minikube
           mkdir -p $HOME/.minikube/certs
+          pwd && ls -la && ls -la $HOME/.minikube/profiles/minikube/ 
           cp .github/workflows/.kube/config/client.crt $HOME/.minikube/profiles/minikube/client.crt
           cp .github/workflows/.kube/config/client.key $HOME/.minikube/profiles/minikube/client.key
           cp .github/workflows/.kube/config/ca.crt $HOME/.minikube/certs/ca.crt        
