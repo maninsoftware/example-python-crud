@@ -57,7 +57,10 @@ jobs:
           KUBECONFIG: $HOME/.github/workflow/.kube/config
         run: |
           # Example deployment script, replace with actual deployment logic
+          pwd
           minikube start --driver=docker
+          kubectl get ns
+          kubectl create namespace dev
           ENV=dev BUILD=$GITHUB_SHA envsubset < $HOME/manifests/deployment.yaml | kubectl apply -f - -n dev
           echo "Deploying to staging environment"
 
